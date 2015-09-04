@@ -1,2 +1,44 @@
-<h1>StaticPages#input</h1>
-<p>Find me in app/views/static_pages/input.html.erb</p>
+<div class="panel panel-default">
+  <div class="panel-heading">点数入力</div>
+  <%= form_for('/input_score') do %>
+    <table>
+      <thead>
+        <tr>
+          <th>面子</th>
+          <th>
+            <%= select_tag 'ton[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
+          </th>
+          <th>
+            <%= select_tag 'nan[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
+          </th>
+          <th>
+            <%= select_tag 'sha[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
+          </th>
+          <th>
+            <%= select_tag 'pei[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>
+            <input type="text" name="name" size="30" maxlength="20">
+          </td>
+          <td>
+            <input type="text" name="name" size="30" maxlength="20">
+          </td>
+          <td>
+            <input type="text" name="name" size="30" maxlength="20">
+          </td>
+          <td>
+            <input type="text" name="name" size="30" maxlength="20">
+          </td>
+          <td>
+            <button href="#" class="btn">送信</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <%  end %>
+</div>

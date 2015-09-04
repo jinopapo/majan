@@ -1,11 +1,55 @@
-<!--
+<style>
+.navbar-origin {
+        background: #eee;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        height: 60px;
+}
+.navbar-origin .navbar-brand {
+        padding: 0 15px;
+        line-height: 60px;
+        height: 60px;
+        font-size: 28px;
+        font-weight: 100;
+}
+.navbar-origin .navbar-nav>li>a {
+        padding-bottom: 0;
+        line-height: 60px;
+        font-weight: 200;
+        color: #A5A5A5;
+}
+.navbar-origin .navbar-nav>li>a:hover{
+        padding-top: 0;
+        color: #E42121;
+        border-bottom: 1px solid #E42121;
+        line-height: 59px;
+}
+.navbar-origin .navbar-nav>.open>a,
+.navbar-origin .navbar-nav>.open>a:hover,
+.navbar-origin .navbar-nav>.open>a:focus {
+        background: none;
+        color: #E42121;
+}
+.navbar-origin .navbar-nav>li>.dropdown-menu {
+        margin-top: 0;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-top: 1px solid #E42121;
+}
+.navbar-origin .dropdown-menu {
+        padding: 0;
+}
+.navbar-origin .dropdown-menu li a {
+        padding: 15px;
+        color: #777;
+}
+.navbar-origin .dropdown-menu li.divider {
+        padding: 0;
+        margin: 0;
+}
+</style>
 
-  navbar-inverse : 黒いスタイルに変更
-  navbar-origin : オリジナルスタイルを当ててみると・・・
-
--->
-
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-origin navbar-fixed-top" role="navigation">
   <div class="container-fluid">
 
     <!-- スマートフォンサイズで表示されるメニューボタンとテキスト -->
@@ -19,7 +63,7 @@
       </button>
 
       <!-- タイトルなどのテキスト -->
-      <a class="navbar-brand" href="#">Designup.jp</a>
+      <a class="navbar-brand" href="/">Designup.jp</a>
 
     </div>
 
@@ -27,23 +71,23 @@
     <div class="collapse navbar-collapse" id="nav-menu-4">
 
       <!-- 各ナビゲーションメニュー -->
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
 
         <!-- 通常のリンク -->
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="/input">Input</a></li>
+        <li><a href="#">Works</a></li>
+        <li><a href="#">Portfolio</a></li>
 
         <!-- ドロップダウンのメニューも配置可能 -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i> Mail@mail.com</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i> 000-1111-2222</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
           </ul>
         </li>
 

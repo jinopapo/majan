@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   match '/input', to: 'static_pages#input', via:'get'
+  match '/input', to: 'static_pages#input_score', via:'post'
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
