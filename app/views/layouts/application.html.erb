@@ -3,14 +3,10 @@
   <head>
     <title>Majan</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= yield :css %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= yield :js %>
     <%= csrf_meta_tags %>
-    <style>
-    body {
-            padding-top: 90px;
-            padding-bottom: 30px;
-    }
-    </style>
   </head>
   <body>
     <%= render 'layouts/header' %>

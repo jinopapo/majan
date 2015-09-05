@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   match '/input', to: 'static_pages#input', via:'get'
-  match '/input', to: 'static_pages#input_score', via:'post'
+  match '/new', to: 'users#new', via:'get'
+  match '/new', to: 'users#create', via:'post'
+  match '/new', to: 'users#new', via:'patch'
   root 'static_pages#home'
+  namespace  :api,{format: 'json'} do
+    resource :score,:except => [:new]
+  end
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
