@@ -1,4 +1,4 @@
-module api
+module Api
   class ScoreController < ApplicationController
     def create
     end
