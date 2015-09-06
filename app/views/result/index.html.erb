@@ -1,10 +1,15 @@
+<% content_for :css do %>
+<%= stylesheet_link_tag "result/index.css",media: 'all' %>
+<% end %>
+
+
 <div class="panel panel-default">
   <div class="panel-heading">結果一覧</div>
-  <table width="100%">
+  <table class="result-table table table-bordered" width="100%">
     <thead>
       <tr>
 	<% for num in 0..3%>
-	<th width="25%" colspan=2><%= 4 - num %>位</th>
+	<th width="25%"><%= 4 - num %>位</th>
 	<% end %>
       </tr>
     </thead>
@@ -12,11 +17,15 @@
       <% @hands.each do |hand| %>
       <tr>
 	<% hand.scores.each do |score| %>
-	<td width="10%">
-	  <%= @users.find(score.user_id).name %>
-	</td>
-	<td width="15%">
-	  <%= score.score %>
+	<td width="25%">
+	  <table class="user-table" width="100%">
+	    <td width="40%">
+	      <%= @users.find(score.user_id).name %>
+	    </td>
+	    <td width="60%">
+	      <%= score.score %>
+	    </td>
+	  </table>
 	</td>
 	<% end %>
       </tr>
