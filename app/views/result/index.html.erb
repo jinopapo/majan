@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading">結果一覧</div>
+  <table width="100%">
+    <thead>
+      <tr>
+	<% for num in 0..3%>
+	<th width="25%" colspan=2><%= 4 - num %>位</th>
+	<% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hands.each do |hand| %>
+      <tr>
+	<% hand.scores.each do |score| %>
+	<td width="10%">
+	  <%= @users.find(score.user_id).name %>
+	</td>
+	<td width="15%">
+	  <%= score.score %>
+	</td>
+	<% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

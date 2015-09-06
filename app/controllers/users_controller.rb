@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def new
     @new = User.new
     @user = User.all
+
   end
   def create
     @new = User.new(:name => params[:user][:name])

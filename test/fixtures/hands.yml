@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ton_id: 
+  nan_id: 
+  sha_id: 
+  pei_id: 
+
+two:
+  ton_id: 
+  nan_id: 
+  sha_id: 
+  pei_id: 

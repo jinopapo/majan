@@ -1,42 +1,87 @@
+<% if @name_flag then %>
+<em>
+  同じユーザーがいます
+</em>
+<br>
+<% end %>
+<% if @score_flag then %>
+<em>
+  スコアが不正です
+</em>
+<br>
+<% end %>
 <div class="panel panel-default">
   <div class="panel-heading">点数入力</div>
-    <table>
-      <thead>
-        <tr>
-          <th>面子</th>
-          <th>
-            <%= select_tag 'ton[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
-          </th>
-          <th>
-            <%= select_tag 'nan[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
-          </th>
-          <th>
-            <%= select_tag 'sha[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
-          </th>
-          <th>
-            <%= select_tag 'pei[name]', options_for_select(["hoge", "hige", "hage", "huge"]) %>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td>
-            <input type="text" name="name" size="30" maxlength="20">
-          </td>
-          <td>
-            <input type="text" name="name" size="30" maxlength="20">
-          </td>
-          <td>
-            <input type="text" name="name" size="30" maxlength="20">
-          </td>
-          <td>
-            <input type="text" name="name" size="30" maxlength="20">
-          </td>
-          <td>
-            <button href="#" class="btn">送信</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <%= form_tag('/input') do %>
+  <table>
+    <thead>
+      <tr>
+	<th>面子</th>
+	<th>
+	  東
+	  <%= select_tag 'ton[name]', options_from_collection_for_select(@users, :id, :name) %>
+	</th>
+	<th>
+	  南
+	  <%= select_tag 'nan[name]', options_from_collection_for_select(@users, :id, :name) %>
+	</th>
+	<th>
+	  西
+	  <%= select_tag 'sha[name]', options_from_collection_for_select(@users, :id, :name) %>
+	</th>
+	<th>
+	  北
+	  <%= select_tag 'pei[name]', options_from_collection_for_select(@users, :id, :name) %>
+	</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+	<td></td>
+	<td>
+	  <%= text_field :ton, :score %>
+	</td>
+	<td>
+	  <%= text_field :nan, :score %>
+	</td>
+	<td>
+	  <%= text_field :sha, :score %>
+	</td>
+	<td>
+	  <%= text_field :pei, :score %>
+	</td>
+	<td>
+	  <button href="#" class="btn">送信</button>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">最近の結果</div>
+  <table width="100%">
+    <thead>
+      <tr>
+	<% for num in 0..3%>
+	<th width="25%" colspan=2><%= 4 - num %>位</th>
+	<% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hands.each do |hand| %>
+      <tr>
+	<% hand.scores.each do |score| %>
+	<td width="10%">
+	  <%= @users.find(score.user_id).name %>
+	</td>
+	<td width="15%">
+	  <%= score.score %>
+	</td>
+	<% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

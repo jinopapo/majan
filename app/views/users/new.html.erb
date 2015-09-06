@@ -9,16 +9,18 @@
   <%= f.text_field :name %>
   <button class="btn">送信</button>
   <% end %>
+</div>
+<div class="panel panel-default">
   <div class="panel-heading">一覧</div>
   <table width="100%">
-    <% @user.each_slice 10 do |data| %>
+    <% @user.each_slice 5 do |data| %>
     <tr>
       <%  data.each do |user| %>
-      <% if !(user.nil?) then %>
       <td class="user-name" width="10%">
+	<% if !(user.nil?) then %>
 	<a><%= user.name %></a>
+	<% end %>
       </td>
-      <% end %>
       <% end  %>
     </tr>
     <% end %>
