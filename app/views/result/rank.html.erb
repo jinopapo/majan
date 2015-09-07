@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">総得点</div>
+      <table class="text-center table table-bordered" width="100%">
+	<% @score_sum.each do |key, value| %>
+	<tr>
+	  <td>
+	    <div class="row">
+	      <div class="col-md-8">
+		<%= @users.find(key).name %>
+	      </div>
+	      <div class="col-md-4">
+		<%= value %>
+	      </div>
+	    </div>
+	  </td>
+	</tr>
+	<% end %>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">平均得点</div>
+      <table class="text-center table table-bordered" width="100%">
+	<% @score_ave.each do |key, value| %>
+	<tr>
+	  <td>
+	    <div class="row">
+	      <div class="col-md-8">
+		<%= @users.find(key).name %>
+	      </div>
+	      <div class="col-md-4">
+		<%= value.round(2) %>
+	      </div>
+	    </div>
+	  </td>
+	</tr>
+	<% end %>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">平均順位</div>
+      <table class="text-center table table-bordered" width="100%">
+	<% @rank_ave.each do |key, value| %>
+	<tr>
+	  <td>
+	    <div class="row">
+	      <div class="col-md-8">
+		<%= @users.find(key).name %>
+	      </div>
+	      <div class="col-md-4">
+		<%= value.round(2) %>
+	      </div>
+	    </div>
+	  </td>
+	</tr>
+	<% end %>
+      </table>
+    </div>
+  </div>
+</div>

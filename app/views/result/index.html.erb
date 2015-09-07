@@ -5,11 +5,11 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">結果一覧</div>
-  <table class="result-table table table-bordered" width="100%">
+  <table class="table table-bordered" width="100%">
     <thead>
       <tr>
 	<% for num in 0..3%>
-	<th width="25%"><%= 4 - num %>位</th>
+	<th class="text-center" width="25%"><%= 4 - num %>位</th>
 	<% end %>
       </tr>
     </thead>
@@ -18,14 +18,14 @@
       <tr>
 	<% hand.scores.each do |score| %>
 	<td width="25%">
-	  <table class="user-table" width="100%">
-	    <td width="40%">
+	  <div class="row text-center">
+	    <div class="col-md-8">
 	      <%= @users.find(score.user_id).name %>
-	    </td>
-	    <td width="60%">
+	    </div>
+	    <div class="col-md-4">
 	      <%= score.score %>
-	    </td>
-	  </table>
+	    </div>
+	  </div>
 	</td>
 	<% end %>
       </tr>

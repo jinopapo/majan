@@ -37,7 +37,7 @@ class StaticPagesController < ApplicationController
         score[num][:score] += 400
         score[num][:score] = (score[num][:score]/1000).to_i
         score[num][:score] = uma[num] + score[num][:score] - 30
-        Score.create(score: score[num][:score],user_id: score[num][:name],hand_id: hand.id)
+        Score.create(score: score[num][:score],user_id: score[num][:name],hand_id: hand.id,rank: 4 - num)
       end
     end
     render action: :input
