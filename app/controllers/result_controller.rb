@@ -4,7 +4,7 @@ class ResultController < ApplicationController
     @users = User.all
   end
   def graph
-    @hands = Hnad.all
+    @hands = Hand.all
     @users = User.all
   end
   def rank

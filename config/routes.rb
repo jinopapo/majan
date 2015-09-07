@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   match '/new', to: 'users#new', via:'patch'
   match '/result', to: 'result#index', via:'get'
   match '/result/rank', to: 'result#rank', via:'get'
+  match '/result/graph', to: 'result#graph', via:'get'
   root 'static_pages#home'
   namespace  :api,{format: 'json'} do
     resource :score,:except => [:new]
