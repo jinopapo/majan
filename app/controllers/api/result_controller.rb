@@ -5,7 +5,7 @@ module Api
       users = User.all
       data = {}
       users.each do |var|
-        data[var.name]=data.fetch(var.name,[])
+        data[var.name]=data.fetch(var.name,[0])
       end
       score.each_slice 4 do |var|
         users.each do |key|
@@ -15,11 +15,7 @@ module Api
               now = v.score
             end
           end
-          if data[key.name].size == 0 then
-            data[key.name] = data[key.name].push(now)
-          else
-            data[key.name] = data[key.name].push(data[key.name].last + now)
-          end
+          data[key.name] = data[key.name].push(data[key.name].last + now)
         end
       end
       render :json => data
