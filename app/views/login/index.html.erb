@@ -1,0 +1,13 @@
+<% if !@admin then %>
+  <em>
+    パスワードが違います
+  </em>
+  <br>
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">password</div>
+  <%= form_tag('/admin') do %>
+    <%= password_field_tag :pass, params[:pass] %>
+    <button href="#" class="btn">送信</button>
+  <% end %>
+</div>

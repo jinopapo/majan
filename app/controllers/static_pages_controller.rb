@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def create
-    input
+    input()
     names = []
     sum = 0;
     score = []

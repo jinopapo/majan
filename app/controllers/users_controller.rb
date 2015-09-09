@@ -11,4 +11,5 @@ class UsersController < ApplicationController
     @user = User.all
     render action: :new
   end
+
 end
