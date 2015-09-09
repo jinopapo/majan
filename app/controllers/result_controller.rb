@@ -8,7 +8,6 @@ class ResultController < ApplicationController
   def graph
     @hands = Hand.all
     @users = User.all
-    session[:admin_id] = nil;
   end
 
   def rank

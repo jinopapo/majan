@@ -7,7 +7,7 @@ class LoginController < ApplicationController
     admin = Admin.limit(1)
     if admin && admin[0].authenticate(params[:pass]) then
       session[:admin_id] = admin[0].id
-      redirect_to "/input"
+      redirect_to "/"
     else
       @admin = false
       render action: :index
