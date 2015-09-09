@@ -1,15 +1,23 @@
 class UsersController < ApplicationController
   def new
-    @new = User.new
-    @user = User.all
+    if admin_user != nil then
+      @new = User.new
+      @user = User.all
+    else
+      redirect_to "/admin"
+    end
   end
   def create
-    @new = User.new(:name => params[:user][:name])
-    if @new[:name].strip != "" && !User.exists?(:name => @new[:name]) then
-      @new.save
+    if admin_user != nil then
+      @new = User.new(:name => params[:user][:name])
+      if @new[:name].strip != "" && !User.exists?(:name => @new[:name]) then
+        @new.save
+      end
+      @user = User.all
+      render action: :new
+    else
+      redirect_to "/admin"
     end
-    @user = User.all
-    render action: :new
   end
 
 end
