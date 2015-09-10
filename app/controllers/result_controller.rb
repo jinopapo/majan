@@ -8,6 +8,7 @@ class ResultController < ApplicationController
   def graph
     @hands = Hand.all
     @users = User.all
+
   end
 
   def rank
