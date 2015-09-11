@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
     else
       redirect_to "/admin"
     end
+
   end
 
   def create
@@ -48,10 +49,9 @@ class StaticPagesController < ApplicationController
         end
         Score.create(score: -top_score,user_id: score[3][:name],hand_id: hand.id,rank: 1)
       end
-      render action: :input
+      redirect_to "/input"
+    else
+      redirect_to "/admin"
     end
-  else
-    redirect_to "/admin"
   end
-
 end
