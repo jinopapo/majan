@@ -25,7 +25,10 @@ jQuery( function() {
                 show: true,
                 placement: 'outside',
                 location: 's',
-                renderer: jQuery.jqplot.EnhancedLegendRenderer,
+                renderer: jQuery . jqplot . EnhancedLegendRenderer,
+                 rendererOptions: {
+                    numberRows: 1
+                }
             }
         });
     })
