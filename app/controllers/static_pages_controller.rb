@@ -1,3 +1,4 @@
+# coding: utf-8
 class StaticPagesController < ApplicationController
   def home
   end
@@ -8,6 +9,7 @@ class StaticPagesController < ApplicationController
       @hands = Hand.order("created_at DESC").limit(10)
       @name_flag = false
       @score_flag = false
+      @result_title = "最近の結果"
     else
       redirect_to "/admin"
     end
@@ -32,9 +34,10 @@ class StaticPagesController < ApplicationController
       end
       if names.uniq.size != 4 then
         @name_flag = true
-      end
-      if sum != 100000 then
+        render "input"
+      elsif sum != 100000 then
         @score_flag = true
+        render "input"
       end
       if !@name_flag && !@score_flag then
         hand = Hand.create()
@@ -48,8 +51,8 @@ class StaticPagesController < ApplicationController
           Score.create(score: score[num][:score],user_id: score[num][:name],hand_id: hand.id,rank: 4 - num)
         end
         Score.create(score: -top_score,user_id: score[3][:name],hand_id: hand.id,rank: 1)
+        redirect_to "/input"
       end
-      redirect_to "/input"
     else
       redirect_to "/admin"
     end

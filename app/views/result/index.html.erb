@@ -1,35 +1,5 @@
 <% content_for :css do %>
-<%= stylesheet_link_tag "result/index.css",media: 'all' %>
+  <%= stylesheet_link_tag "result/index.css",media: 'all' %>
 <% end %>
 
-
-<div class="panel panel-default">
-  <div class="panel-heading">結果一覧</div>
-  <table class="table table-bordered" width="100%">
-    <thead>
-      <tr>
-	<% for num in 0..3%>
-	<th class="text-center" width="25%"><%= 4 - num %>位</th>
-	<% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @hands.each do |hand| %>
-      <tr>
-	<% hand.scores.each do |score| %>
-	<td width="25%">
-	  <div class="row text-center">
-	    <div class="col-md-8">
-	      <%= @users.find(score.user_id).name %>
-	    </div>
-	    <div class="col-md-4">
-	      <%= score.score %>
-	    </div>
-	  </div>
-	</td>
-	<% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<%= render :file => 'result_table' %>

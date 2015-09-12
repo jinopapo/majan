@@ -5,7 +5,10 @@ module Api
       users = User.all
       data = {}
       users.each do |var|
-        data[var.name]=data.fetch(var.name,[0])
+        hoge = Score.where("user_id = '#{var.id}'")
+        if hoge.size >= 10 then
+          data[var.name]=data.fetch(var.name,[0])
+        end
       end
       score.each_slice 4 do |var|
         users.each do |key|
@@ -15,7 +18,9 @@ module Api
               now = v.score
             end
           end
-          data[key.name] = data[key.name].push(data[key.name].last + now)
+          if !data[key.name].nil?
+            data[key.name] = data[key.name].push(data[key.name].last + now)
+          end
         end
       end
       render :json => data

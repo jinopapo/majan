@@ -1,14 +1,15 @@
+# coding: utf-8
 class ResultController < ApplicationController
 
   def index
     @hands = Hand.order("created_at DESC")
     @users = User.all
+    @result_title = "結果一覧"
   end
 
   def graph
     @hands = Hand.all
     @users = User.all
-
   end
 
   def rank

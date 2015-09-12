@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         @new.save
       end
       @user = User.all
-      render action: :new
+      redirect_to "/new"
     else
       redirect_to "/admin"
     end
