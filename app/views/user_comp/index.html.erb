@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th>
+      </th>
+      <% @user.each do |var| %>
+        <th>
+          <%= var.name%>
+        </th>
+      <% end %>
+    </tr>
+    <%  @user.each do |var| %>
+      <tr>
+        <th>
+          <%=  var.name %>
+        </th>
+        <% @user.each do |user| %>
+          <th>
+            <% if @map[var.name][user.name].nil? %>
+              0
+            <% else %>
+              <%= @map[var.name][user.name].round(2)%>
+            <% end %>
+          </th>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
