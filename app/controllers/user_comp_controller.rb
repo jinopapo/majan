@@ -21,7 +21,7 @@ class UserCompController < ApplicationController
           if scores.size == 0 then
             @map[player.name][enemy.name] = 0
           else
-            @map[player.name][enemy.name] = scores.inject(0.0){|r,i| r+=i }/scores.size
+            @map[player.name][enemy.name] = scores.inject(0.0){|r,i| r+=i }
           end
         end
       end
