@@ -65,9 +65,8 @@ $( function() {
                 }
             });
             $.each(msg,function(key,val){
-                chartData.labels.push(key);
-                console.log(val);
                 if(key != name){
+                    chartData.labels.push(key);
                     if(val == null){
                         chartData.datasets[0].data.push(min);
                     }else{
