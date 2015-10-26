@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   match '/result/graph', to: 'result#graph', via:'get'
   match '/result/comp', to: 'user_comp#index', via:'get'
   match 'api/result/score_sum', to: 'api/result#score_sum', via:'get'
+  match 'api/comp', to: 'api/comp#comp', via:'get'
   root 'static_pages#home'
-  namespace  :api,{format: 'json'} do
-    resource :score,:except => [:new]
-  end
-  resources :users
+ # namespace  :api,{format: 'json'} do
+ #   resource :score,:except => [:new]
+ # end
+  resources :user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
