@@ -93,7 +93,7 @@ $( function() {
                 // e.g. 10 なら 0, 10, 20, 30 のように増えていく
                 scaleStepWidth : Math.ceil((max-min)/10),
                 // Y 軸の値の始まりの値
-                scaleStartValue : min,
+                scaleStartValue : min-10,
                 // X, Y 軸ラインの色
                 scaleLineColor : "rgba(0, 0, 0, .1)",
                 // X, Y 軸ラインの幅
