@@ -14,8 +14,8 @@ module Api
         end
         if scores.size == 0
           if u.id == params[:id]
-            data[u.name] = Score.order("average_score DESC").group(:user_id).average(:score)
-          else
+            data[u.name] = Score.order("average_score DESC").group(:user_id).average(:score,:conditions => ["user_id = #{u.id}"])
+           else
             data[u.name] = nil
           end
         else
