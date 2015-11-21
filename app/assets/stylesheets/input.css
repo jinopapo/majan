@@ -7,5 +7,6 @@
 }
 
 .input-score {
+    ime-mode: disabled;
     width: 100%;
 }

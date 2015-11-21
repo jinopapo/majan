@@ -15,8 +15,7 @@ class StaticPagesController < ApplicationController
       @result_title = "最近の結果"
     else
       redirect_to "/admin"
-      end
-
+    end
   end
 
   def create
@@ -33,6 +32,7 @@ class StaticPagesController < ApplicationController
       end
       if names.uniq.size != 4 then
         @name_flag = true
+
         render "input"
       elsif sum != 100000 then
         @score_flag = true
@@ -41,8 +41,8 @@ class StaticPagesController < ApplicationController
       if !@name_flag && !@score_flag then
         score = uma(score)
         hand = Hand.create()
-        for var in score do
-          Score.create(score: var[:score],user_id: var[:name],hand_id: hand.id,rank: 4 - var)
+        score.each_with_index do |var,index|
+          Score.create(score: var[:score],user_id: var[:name],hand_id: hand.id,rank: 4 - index)
         end
         redirect_to "/input"
       end
