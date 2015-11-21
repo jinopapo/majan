@@ -1,0 +1,12 @@
+.result-table th {
+    text-align: center;
+}
+
+.user-table td {
+    text-align: center;
+}
+
+.input-score {
+    ime-mode: disabled;
+    width: 100%;
+}

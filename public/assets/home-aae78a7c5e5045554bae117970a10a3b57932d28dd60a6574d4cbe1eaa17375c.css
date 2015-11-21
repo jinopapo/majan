@@ -1,0 +1,29 @@
+body {
+  background-image: url("/assets/1366_768_20091126090927427353.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.container{
+  display:table;
+  width:400px;
+  height:400px;
+}
+
+.comment{
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
+  line-height:1.5em;
+  color: #ffffff;
+  font-size:  large;
+}
+
+.navbar{
+  filter:alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
