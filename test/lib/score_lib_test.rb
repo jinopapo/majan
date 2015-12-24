@@ -31,7 +31,7 @@ class ScoreLibTest < ActionController::TestCase
                   {:score => 50,:name => "pei"}],
                  uma([{:score => -2000,:name => "ton"},
                       {:score => 35500,:name => "nan"},
-                      {:score => 175o00,:name => "sha"},
+                      {:score => 17500,:name => "sha"},
                       {:score => 49000,:name => "pei"}])
   end
 

@@ -5,5 +5,8 @@ class StaticPagesControllerTest < ActionController::TestCase
    # get :home
    # assert_response :success
   #end
-
+  test "input" do
+    get :input
+    assert_equal 302,response.status
+  end
 end

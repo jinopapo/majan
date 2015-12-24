@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class LoginControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "test index" do
+    get :index
+    assert_equal 200,response.status
+  end
 end
