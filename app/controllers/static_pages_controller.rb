@@ -8,8 +8,14 @@ class StaticPagesController < ApplicationController
 
   def input
     if admin_user != nil then
+      d = Date.today
+      if d.month < 4
+        queries = "created_at > '#{d.year-1}-04-01'"
+      else
+        queries = "created_at > '#{d.year}-04-01'"
+      end
       @users = User.all
-      @hands = Hand.order("created_at DESC").limit(10)
+      @hands = Hand.where(queries).order("created_at DESC").limit(10)
       @name_flag = false
       @score_flag = false
       @result_title = "最近の結果"

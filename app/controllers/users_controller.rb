@@ -1,8 +1,10 @@
+require "date"
+
 class UsersController < ApplicationController
   def new
     if admin_user != nil then
-      @new = User.new
-      @user = User.all
+     @new = User.new
+     @user = User.all
     else
       redirect_to "/admin"
     end
@@ -13,7 +15,6 @@ class UsersController < ApplicationController
       if @new[:name].strip != "" && !User.exists?(:name => @new[:name]) then
         @new.save
       end
-      @user = User.all
       redirect_to "/new"
     else
       redirect_to "/admin"

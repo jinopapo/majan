@@ -1,8 +1,16 @@
+require "date"
+
 module Api
   class CompController < ApplicationController
     def comp
-      user = User.all
-      score = Score.where("user_id = '#{params[:id]}'")
+      d = Date.today
+      if d.month < 4
+        queries = "created_at > '#{d.year-1}-04-01'"
+      else
+        queries = "created_at > '#{d.year}-04-01'"
+      end
+      user = User.where(queries)
+      score = Score.where(queries).where("user_id = '#{params[:id]}'")
       data = {}
       user.each do |u|
         scores  = []
