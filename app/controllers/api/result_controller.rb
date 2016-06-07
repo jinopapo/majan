@@ -35,13 +35,8 @@ module Api
     end
 
     def all
-      d = Date.today
       data = []
-      if d.month < 4
-        queries = "created_at > '#{d.year-1}-04-01'"
-      else
-        queries = "created_at > '#{d.year}-04-01'"
-      end
+      queries = "created_at > '#{params[:year]}-04-01'"
       hands = Hand.where(queries).order("created_at DESC")
       users = User.all
       hands.each do |hand|

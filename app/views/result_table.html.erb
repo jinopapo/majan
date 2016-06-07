@@ -3,7 +3,19 @@
 <%= javascript_include_tag "all.js", 'data-turbolinks-track' => true %>
 <% end %>
 
-
+<%
+d = Date.today
+if d.month < 4
+  year = d.year-1
+else
+  year = d.year
+end
+-%>
+<%= select_year(Date.today,
+                {:start_year => year,
+                 :end_year =>  year - 2
+                })
+%>
 <div class="panel panel-default">
   <div class="panel-heading"><%= @result_title %></div>
   <table class="table table-bordered" width="100%">
