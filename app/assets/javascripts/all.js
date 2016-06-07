@@ -4,7 +4,7 @@ $( function() {
     url: "/api/result/all"
   }).then(function(data) {
     $.each(data,function(index,value){
-      $('#score').clone().append();
+      $('.score:first').clone().insertAfter($('.score:last'));
       var cell = $('.score:last').children().first();
       for(key in value){
         cell.find('.score-name').html(value[key][0]);
@@ -12,5 +12,6 @@ $( function() {
         cell = cell.next();
       }
     });
+    $('.score:first').remove();
   });
 });
