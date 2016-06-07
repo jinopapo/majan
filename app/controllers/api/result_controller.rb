@@ -36,7 +36,7 @@ module Api
 
     def all
       data = []
-      queries = "created_at > '#{params[:year]}-04-01'"
+      queries = "created_at > '#{params[:year]}-04-01' AND created_at < '#{params[:year].to_i+1}-04-01'"
       hands = Hand.where(queries).order("created_at DESC")
       users = User.all
       hands.each do |hand|
@@ -46,7 +46,9 @@ module Api
           game[rank] = [users.find(score.user_id).name,score.score]
           rank += 1
         end
-        data << game
+        if !game.empty?
+          data << game
+        end
       end
       render :json => data
     end
