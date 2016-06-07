@@ -10,14 +10,14 @@
     </thead>
     <tbody>
       <% @hands.each do |hand| %>
-        <tr>
+        <tr class="score">
           <% hand.scores.reverse.each do |score| %>
             <td width="25%">
               <div class="row text-center">
-                <div class="col-md-8">
+                <div class="col-md-8 score-name">
                   <%= @users.find(score.user_id).name %>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 score-value">
                   <%= score.score %>
                 </div>
               </div>

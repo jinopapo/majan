@@ -1,7 +1,15 @@
 module Api
   class ResultController < ApplicationController
+
     def score_sum
-      score = Score.order(:created_at)
+      d = Date.today
+      data = []
+      if d.month < 4
+        queries = "created_at > '#{d.year-1}-04-01'"
+      else
+        queries = "created_at > '#{d.year}-04-01'"
+      end
+      score = Score.where(queries).order(:created_at)
       users = User.all
       data = {}
       users.each do |var|
@@ -25,5 +33,28 @@ module Api
       end
       render :json => data
     end
+
+    def all
+      d = Date.today
+      data = []
+      if d.month < 4
+        queries = "created_at > '#{d.year-1}-04-01'"
+      else
+        queries = "created_at > '#{d.year}-04-01'"
+      end
+      hands = Hand.where(queries).order("created_at DESC")
+      users = User.all
+      hands.each do |hand|
+        game = {}
+        rank = 1
+        hand.scores.reverse.each do |score|
+          game[rank] = [users.find(score.user_id).name,score.score]
+          rank += 1
+        end
+        data << game
+      end
+      render :json => data
+    end
+
   end
 end

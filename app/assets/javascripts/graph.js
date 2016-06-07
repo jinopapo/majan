@@ -5,7 +5,7 @@ jQuery( function() {
         type: "GET",
         url: "/api/result/score_sum"
     }).then(function(msg) {
-        for(key in msg) {
+      for(key in msg) {
             scores.push(msg[key]);
             var name = {label: key}
             names.push(name);
