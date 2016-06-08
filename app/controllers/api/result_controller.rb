@@ -2,13 +2,7 @@ module Api
   class ResultController < ApplicationController
 
     def score_sum
-      d = Date.today
-      data = []
-      if d.month < 4
-        queries = "created_at > '#{d.year-1}-04-01'"
-      else
-        queries = "created_at > '#{d.year}-04-01'"
-      end
+      queries = "created_at > '#{params[:year]}-04-01' AND created_at < '#{params[:year].to_i+1}-04-01'"
       score = Score.where(queries).order(:created_at)
       users = User.all
       data = {}
