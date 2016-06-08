@@ -52,7 +52,7 @@ module Api
       idata.each do |key,val|
         score = {}
         score["name"] = users.find(key).name
-        score["score"] = val.round(3)
+        score["score"] = val.round(2)
         data << score
       end
       return data
