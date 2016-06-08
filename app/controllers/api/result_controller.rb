@@ -53,5 +53,29 @@ module Api
       render :json => data
     end
 
+    def makeHash(idata,users)
+      data = []
+      idata.each do |key,val|
+        score = {}
+        score["name"] = users.find(key).name
+        score["score"] = val
+        data << score
+      end
+      return data
+    end
+
+    def rank
+      data = {}
+      queries = "created_at > '#{params[:year]}-04-01' AND created_at < '#{params[:year].to_i+1}-04-01'"
+      users = User.all
+      score_sum = Score.where(queries).order("sum_score DESC").group(:user_id).sum(:score)
+      data["score_sum"] = makeHash(score_sum,users)
+      score_ave = Score.where(queries).order("average_score DESC").group(:user_id).average(:score)
+      data["score_ave"] = makeHash(score_ave,users)
+      rank_ave = Score.where(queries).order("average_rank").group(:user_id).average(:rank)
+      data["rank_ave"] = makeHash(rank_ave,users)
+      render :json => data
+    end
+
   end
 end

@@ -4,14 +4,6 @@ require "date"
 class ResultController < ApplicationController
 
   def index
-    d = Date.today
-    if d.month < 4
-      queries = "created_at > '#{d.year-1}-04-01'"
-    else
-      queries = "created_at > '#{d.year}-04-01'"
-    end
-    @hands = Hand.where(queries).order("created_at DESC")
-    @users = User.all
     @result_title = "結果一覧"
   end
 

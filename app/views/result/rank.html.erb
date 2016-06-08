@@ -1,22 +1,36 @@
+<% content_for :js do %>
+<%= javascript_include_tag "jquery.jqplot.min.js", 'data-turbolinks-track' => true %>
+<%= javascript_include_tag "rank.js", 'data-turbolinks-track' => true %>
+<% end %>
+
+<%
+d = Date.today
+if d.month < 4
+  year = d.year-1
+else
+  year = d.year
+end
+-%>
+<%= select_year(Date.today,
+                {:start_year => year,
+                 :end_year =>  year - 2
+                })
+%>
 <div class="row">
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading text-center">総得点</div>
       <table class="text-center table table-bordered" width="100%">
-	<% @score_sum.each do |key, value| %>
-	<tr>
+	<tr class="score-sum">
 	  <td>
 	    <div class="row">
-	      <div class="col-md-8">
-		<%= @users.find(key).name %>
+	      <div class="col-md-8 score-name">
 	      </div>
-	      <div class="col-md-4">
-		<%= value %>
+	      <div class="col-md-4 score-value">
 	      </div>
 	    </div>
 	  </td>
 	</tr>
-	<% end %>
       </table>
     </div>
   </div>
@@ -24,20 +38,16 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center">平均得点</div>
       <table class="text-center table table-bordered" width="100%">
-	<% @score_ave.each do |key, value| %>
-	<tr>
+	<tr class="score-ave">
 	  <td>
 	    <div class="row">
-	      <div class="col-md-8">
-		<%= @users.find(key).name %>
+	      <div class="col-md-8 score-name">
 	      </div>
-	      <div class="col-md-4">
-		<%= value.round(2) %>
+	      <div class="col-md-4 score-value">
 	      </div>
 	    </div>
 	  </td>
 	</tr>
-	<% end %>
       </table>
     </div>
   </div>
@@ -45,20 +55,16 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center">平均順位</div>
       <table class="text-center table table-bordered" width="100%">
-	<% @rank_ave.each do |key, value| %>
-	<tr>
+	<tr class="rank-ave">
 	  <td>
 	    <div class="row">
-	      <div class="col-md-8">
-		<%= @users.find(key).name %>
+	      <div class="col-md-8 score-name">
 	      </div>
-	      <div class="col-md-4">
-		<%= value.round(2) %>
+	      <div class="col-md-4 score-value">
 	      </div>
 	    </div>
 	  </td>
 	</tr>
-	<% end %>
       </table>
     </div>
   </div>
