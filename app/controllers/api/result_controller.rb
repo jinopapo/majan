@@ -7,7 +7,7 @@ module Api
       users = User.all
       data = {}
       users.each do |var|
-        hoge = Score.where("user_id = '#{var.id}'")
+        hoge = Score.where(queries).where("user_id = '#{var.id}'")
         if hoge.size >= 10 then
           data[var.name]=data.fetch(var.name,[0])
         end
